@@ -12,20 +12,19 @@ class Validation:
 
     @staticmethod
     def inputMax(min, max):
-        try:
-            if min < max:
-                return True
-        except ValueError:
+        if min < max:
+            return True
+        else:
             print("input number larger than minimum")
             return False
     
     @staticmethod
     def inputGuess(min, max, guess):
-        try:
-            if min <= guess and guess <= max:
+        if min <= guess and guess <= max:
                 return True
-        except ValueError:
+        else:
             print("input number larger than minimum and smaller than maximum")
+            return False
 
 def inputMin():
     min = input("input minimum number: ")
@@ -49,6 +48,7 @@ def inputGuess(min, max):
     return int(guess)
 
 def getAnswer(min, max):
+    min, max = int(min), int(max)
     return random.randint(min, max)
 
 def guessTheNumber(min, max, answer):
